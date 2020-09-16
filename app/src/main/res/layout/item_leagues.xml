@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dimen_8dp"
+    android:layout_margin="@dimen/dimen_8dp"
+    app:cardElevation="@dimen/dimen_4dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgLeagues"
+            android:layout_width="@dimen/dimen_100dp"
+            android:layout_height="@dimen/dimen_100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            tools:src="@drawable/ic_australian_a_league" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLeagueName"
+            style="@style/BaseTextView"
+            android:layout_below="@+id/imgLeagues"
+            android:layout_marginHorizontal="@dimen/dimen_10dp"
+            android:layout_marginVertical="@dimen/dimen_10dp"
+            android:gravity="center"
+            android:textSize="@dimen/dimen_text_16sp"
+            tools:text="@tools:sample/first_names" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

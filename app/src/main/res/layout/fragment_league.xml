@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.league.LeagueFragment">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <ProgressBar
+        android:id="@+id/pbLeague"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/containerHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:padding="@dimen/dimen_4dp"
+        app:cardCornerRadius="@dimen/dimen_10dp"
+        app:cardElevation="@dimen/dimen_6dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgHome"
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                app:srcCompat="@drawable/ic_soccer" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleHome"
+                style="@style/BaseTextView.Bold"
+                android:layout_below="@+id/imgHome"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:text="@string/label_football_app"
+                android:textSize="@dimen/dimen_text_16sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDescHome"
+                style="@style/BaseTextView"
+                android:layout_below="@+id/tvTitleHome"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="@dimen/dimen_10dp"
+                android:layout_marginVertical="@dimen/dimen_10dp"
+                android:gravity="center"
+                android:text="@string/label_desc_home"
+                android:textSize="@dimen/dimen_text_16sp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLeagueList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/containerHeader"
+        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:text="@string/label_choose_league"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLeague"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        tools:listitem="@layout/item_leagues"
+        android:layout_below="@+id/tvLeagueList"
+        android:layout_marginHorizontal="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_10dp" />
+
+</RelativeLayout>

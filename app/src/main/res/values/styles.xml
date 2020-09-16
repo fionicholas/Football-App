@@ -1,0 +1,126 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.Light">
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/colorPaleGrey</item>
+    </style>
+
+    <style name="BaseTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/colorWhite</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintTextColor">#8D919A</item>
+        <item name="android:textColorHint">#8D919A</item>
+    </style>
+
+    <style name="BaseEditTextCard" parent="Widget.MaterialComponents.CardView">>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+        <item name="cursorColor">#2d3035</item>
+        <item name="android:textColor">#2d3035</item>
+        <item name="android:background">@color/colorTransparent</item>
+    </style>
+
+    <style name="BaseEditTextDate">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColorHint">@color/colorWarmGrey</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:padding">@dimen/dimen_12dp</item>
+    </style>
+
+    <style name="BaseTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="BaseTextView.Bold" parent="BaseTextView">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BaseTextView.Small" parent="BaseTextView">
+        <item name="android:textSize">@dimen/dimen_text_12sp</item>
+    </style>
+
+    <style name="AppTheme.TranslucentStatusBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">false</item>
+        <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">true</item>
+    </style>
+
+    <style name="BaseCardEditText" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardBackgroundColor">@color/colorWhite</item>
+        <item name="strokeColor">@color/colorTransparent</item>
+        <item name="cardCornerRadius">@dimen/dimen_4dp</item>
+    </style>
+
+    <style name="BaseButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="cornerRadius">@dimen/dimen_4dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:insetTop">@dimen/dimen_0dp</item>
+        <item name="android:insetRight">@dimen/dimen_0dp</item>
+        <item name="android:insetBottom">@dimen/dimen_0dp</item>
+        <item name="android:insetLeft">@dimen/dimen_0dp</item>
+    </style>
+
+    <style name="BaseButtonDisabled" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cornerRadius">@dimen/dimen_4dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:padding">@dimen/dimen_12dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="backgroundTint">@color/bg_primary_button</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NumberPickerStyle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="android:colorBackgroundFloating" tools:targetApi="m">@color/colorPrimary</item>
+    </style>
+
+    <style name="BaseTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">@dimen/dimen_text_14sp</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="BaseDialogTheme" parent="Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+</resources>
