@@ -12,8 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.league.DetailLeagueActivity"></activity>
-        <activity android:name=".ui.MainActivity">
+        <activity
+            android:name=".ui.match.DetailMatchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.league.DetailLeagueActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

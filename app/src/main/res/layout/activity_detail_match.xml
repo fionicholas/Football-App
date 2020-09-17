@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.match.DetailMatchActivity">
+
+    <include layout="@layout/layout_toolbar"/>
+
+    <ProgressBar
+        android:id="@+id/pbDetailMatch"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgLeague"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:scaleType="centerCrop"
+        android:layout_height="200dp"
+        tools:srcCompat="@drawable/ic_australian_a_league" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/containerHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgLeague"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="-30dp"
+        app:cardElevation="@dimen/dimen_8dp"
+        app:cardCornerRadius="@dimen/dimen_8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvScoreHome"
+                style="@style/BaseTextView.Bold"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:textSize="@dimen/dimen_text_16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTeamHomeName"
+                app:layout_constraintEnd_toStartOf="@+id/tvSeparation"
+                app:layout_constraintStart_toEndOf="@+id/tvTeamHomeName"
+                app:layout_constraintTop_toTopOf="@+id/tvTeamHomeName"
+                tools:text="2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSeparation"
+                style="@style/BaseTextView.Bold"
+                android:text="@string/label_dash"
+                android:textSize="@dimen/dimen_text_16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvScoreHome"
+                app:layout_constraintEnd_toStartOf="@+id/tvScoreAway"
+                app:layout_constraintStart_toEndOf="@+id/tvScoreHome"
+                app:layout_constraintTop_toTopOf="@id/tvScoreHome" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvScoreAway"
+                style="@style/BaseTextView.Bold"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:textSize="@dimen/dimen_text_16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTeamAwayName"
+                app:layout_constraintEnd_toStartOf="@+id/tvTeamAwayName"
+                app:layout_constraintStart_toEndOf="@+id/tvSeparation"
+                app:layout_constraintTop_toTopOf="@+id/tvTeamAwayName"
+                tools:text="2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTeamHomeName"
+                style="@style/BaseTextView.Bold"
+                android:layout_width="85dp"
+                android:layout_marginVertical="@dimen/dimen_25dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Crystal Palace" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTeamAwayName"
+                style="@style/BaseTextView.Bold"
+                android:layout_width="85dp"
+                android:layout_marginVertical="@dimen/dimen_25dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Crystal Palace" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgTeamHome"
+        android:layout_width="@dimen/dimen_80dp"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_below="@id/containerHeader"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_24dp"
+        tools:srcCompat="@drawable/ic_american_mayor_league" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgTeamAway"
+        android:layout_width="@dimen/dimen_80dp"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_below="@id/containerHeader"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dimen_24dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        tools:srcCompat="@drawable/ic_american_mayor_league" />
+
+    <TextView
+        android:id="@+id/tvMatchName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/containerHeader"
+        android:layout_marginTop="@dimen/dimen_40dp"
+        android:layout_toStartOf="@+id/imgTeamAway"
+        android:layout_toEndOf="@+id/imgTeamHome"
+        android:gravity="center"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp"
+        android:textStyle="bold"
+        tools:text="Burnley vs West Ham" />
+
+    <TextView
+        android:id="@+id/tvMatchDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMatchName"
+        android:layout_toStartOf="@+id/imgTeamAway"
+        android:layout_toEndOf="@+id/imgTeamHome"
+        android:gravity="center"
+        android:textColor="@color/colorTextPrimary"
+        tools:text="14/10/2019" />
+
+    <TextView
+        android:id="@+id/tvScoreHomeDetail"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgTeamHome"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:gravity="center"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp"
+        tools:text="3" />
+
+    <TextView
+        android:id="@+id/tvSeparatorScore"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgTeamHome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:gravity="center"
+        android:text="@string/label_score"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp" />
+
+    <TextView
+        android:id="@+id/tvScoreAwayDetail"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgTeamHome"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:gravity="center"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/tvShootsHome"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvScoreHomeDetail"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp"
+        tools:text="11" />
+
+    <TextView
+        android:id="@+id/tvSeparatorShoot"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvScoreHomeDetail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/label_shoots"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp" />
+
+    <TextView
+        android:id="@+id/tvShootsAway"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvScoreHomeDetail"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp"
+        tools:text="4" />
+
+    <TextView
+        android:id="@+id/tvFormationHome"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvShootsHome"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp"
+        tools:text="3-4-3" />
+
+    <TextView
+        android:id="@+id/tvSeparatorFormation"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvShootsHome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/label_formation"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp" />
+
+    <TextView
+        android:id="@+id/tvFormationAway"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvShootsHome"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp"
+        tools:text="4-2-3-1" />
+
+    <TextView
+        android:id="@+id/tvLabelGoalHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvFormationHome"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/label_home_goal_details"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp" />
+
+    <TextView
+        android:id="@+id/tvValueGoalHome"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvFormationHome"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/tvLabelGoalHome"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp"
+        tools:text="61': Adam Lallana;51': Adam Lallana;33': Alberto Moreno;" />
+
+    <TextView
+        android:id="@+id/tvLabelGoalAway"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvValueGoalHome"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/label_away_goal_details"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp" />
+
+    <TextView
+        android:id="@+id/tvValueGoalAway"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvValueGoalHome"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/tvLabelGoalHome"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/dimen_text_16sp"
+        tools:text="61': Adam Lallana;51': Adam Lallana;33': Alberto Moreno;" />
+
+</RelativeLayout>

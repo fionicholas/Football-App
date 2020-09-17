@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_16dp"
+    app:cardCornerRadius="@dimen/dimen_8dp"
+    app:cardElevation="@dimen/dimen_4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLeagueName"
+            style="@style/BaseTextView.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_top_primary"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dimen_6dp"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="English Premier League" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvScoreHome"
+            style="@style/BaseTextView.Bold"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:textSize="@dimen/dimen_text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTeamHomeName"
+            app:layout_constraintEnd_toStartOf="@+id/tvSeparation"
+            app:layout_constraintStart_toEndOf="@+id/tvTeamHomeName"
+            app:layout_constraintTop_toTopOf="@+id/tvTeamHomeName"
+            tools:text="2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeparation"
+            style="@style/BaseTextView.Bold"
+            android:text="@string/label_dash"
+            android:textSize="@dimen/dimen_text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvScoreHome"
+            app:layout_constraintEnd_toStartOf="@+id/tvScoreAway"
+            app:layout_constraintStart_toEndOf="@+id/tvScoreHome"
+            app:layout_constraintTop_toTopOf="@id/tvScoreHome" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvScoreAway"
+            style="@style/BaseTextView.Bold"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:textSize="@dimen/dimen_text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTeamAwayName"
+            app:layout_constraintEnd_toStartOf="@+id/tvTeamAwayName"
+            app:layout_constraintStart_toEndOf="@+id/tvSeparation"
+            app:layout_constraintTop_toTopOf="@+id/tvTeamAwayName"
+            tools:text="2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTeamHomeName"
+            style="@style/BaseTextView.Bold"
+            android:layout_width="85dp"
+            android:layout_marginVertical="@dimen/dimen_16dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLeagueName"
+            tools:text="Crystal Palace" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTeamAwayName"
+            style="@style/BaseTextView.Bold"
+            android:layout_width="85dp"
+            android:layout_marginVertical="@dimen/dimen_16dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLeagueName"
+            tools:text="Crystal Palace" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
