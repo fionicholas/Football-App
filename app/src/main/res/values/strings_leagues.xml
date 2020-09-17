@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="search_hint">type something</string>
-
     <string-array name="league_id">
         <item>4328</item>
         <item>4334</item>

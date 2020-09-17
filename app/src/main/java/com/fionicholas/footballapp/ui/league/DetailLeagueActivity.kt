@@ -8,10 +8,13 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.fionicholas.footballapp.BuildConfig
 import com.fionicholas.footballapp.R
 import com.fionicholas.footballapp.base.BaseActivity
 import com.fionicholas.footballapp.data.league.remote.response.DetailLeague
+import com.fionicholas.footballapp.ui.general.adapter.GeneralPagerAdapter
+import com.fionicholas.footballapp.ui.match.MatchFragment
+import com.fionicholas.footballapp.ui.standing.StandingFragment
+import com.fionicholas.footballapp.ui.team.TeamFragment
 import com.fionicholas.footballapp.utils.BundleKeys.LEAGUE_ID
 import kotlinx.android.synthetic.main.activity_detail_league.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -40,7 +43,8 @@ class DetailLeagueActivity : BaseActivity() {
 
         val leagueId = intent.getStringExtra(LEAGUE_ID)
 
-        setupToolbar(toolbar, getString(R.string.app_name), false)
+        setupToolbar(toolbar, getString(R.string.app_name), true)
+        setupViewPagerDetailLeague()
 
         leagueId?.let { viewModel.loadDetailLeague(it) }
         setupViewModelDetailLeague()
@@ -94,4 +98,30 @@ class DetailLeagueActivity : BaseActivity() {
         Log.e("TAG", "onMessageError $it")
 
     }
+
+    private fun setupViewPagerDetailLeague() {
+        val pages = listOf(
+            MatchFragment.newInstance(),
+            StandingFragment.newInstance(),
+            TeamFragment.newInstance()
+        )
+
+        val pageTitles = listOf(
+            getString(R.string.title_tab_match),
+            getString(R.string.title_tab_standing),
+            getString(R.string.title_tab_team)
+        )
+
+        vpDetailLeague.apply {
+            adapter = GeneralPagerAdapter(
+                supportFragmentManager,
+                pages = pages,
+                title = pageTitles
+            )
+            offscreenPageLimit = 3
+        }
+
+        tabDetailLeague.setupWithViewPager(vpDetailLeague)
+    }
+
 }

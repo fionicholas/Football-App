@@ -4,4 +4,12 @@
     <string name="label_desc_home">Temukan Pertandingan menarik dan Tim kesayangan anda di Football App.</string>
     <string name="label_choose_league">Pilih Liga</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_hint">type something</string>
+    <string name="title_tab_match">Match</string>
+    <string name="title_tab_team">Team</string>
+    <string name="title_tab_standing">Standing</string>
+    <string name="label_country">Country</string>
+    <string name="label_first_event">First Event</string>
+    <string name="label_gender">Gender</string>
+    <string name="label_detail_league">Detail League</string>
 </resources>
