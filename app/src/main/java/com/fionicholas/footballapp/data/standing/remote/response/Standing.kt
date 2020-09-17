@@ -1,4 +1,4 @@
-package com.fionicholas.footballapp.data.standing
+package com.fionicholas.footballapp.data.standing.remote.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorTextPrimaryDark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTeamName"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:maxLines="1"
+            android:textColor="@color/colorTextPrimaryDark"
+            tools:text="@string/title_tab_team" />
+
+        <TextView
+            android:id="@+id/tvPlayed"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:textColor="@color/colorTextPrimaryDark"
+            tools:text="@string/label_played" />
+
+        <TextView
+            android:id="@+id/tvWin"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:textColor="@color/colorTextPrimaryDark"
+            tools:text="@string/label_win" />
+
+        <TextView
+            android:id="@+id/tvLose"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:textColor="@color/colorTextPrimaryDark"
+            tools:text="@string/label_lose" />
+
+        <TextView
+            android:id="@+id/tvDraw"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:gravity="center"
+            android:textColor="@color/colorTextPrimaryDark"
+            tools:text="@string/label_draw" />
+
+        <TextView
+            android:id="@+id/tvGM"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:gravity="center"
+            android:textColor="@color/colorTextPrimaryDark"
+            tools:text="@string/label_gm" />
+
+        <TextView
+            android:id="@+id/tvGK"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:gravity="center"
+            android:textColor="@color/colorTextPrimaryDark"
+            tools:text="@string/label_gk" />
+
+    </LinearLayout>
+
+</RelativeLayout>
