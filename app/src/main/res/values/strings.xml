@@ -12,4 +12,17 @@
     <string name="label_first_event">First Event</string>
     <string name="label_gender">Gender</string>
     <string name="label_detail_league">Detail League</string>
+    <string name="label_dash">-</string>
+    <string name="label_played">Played</string>
+    <string name="label_win">Win</string>
+    <string name="label_lose">Lose</string>
+    <string name="label_draw">Draw</string>
+    <string name="label_gm">GM</string>
+    <string name="label_gk">GK</string>
+    <string name="label_score">Score</string>
+    <string name="label_formation">Formation</string>
+    <string name="label_home_goal_details">Home Goal Details :</string>
+    <string name="label_away_goal_details">Away Goal Details :</string>
+    <string name="label_shoots">Shoots</string>
+    <string name="label_detail_match">Detail Match</string>
 </resources>
