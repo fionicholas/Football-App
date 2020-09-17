@@ -1,4 +1,4 @@
-package com.fionicholas.footballapp.data.team
+package com.fionicholas.footballapp.data.team.remote.response
 
 import android.os.Parcelable
 import com.google.gson.annotations.Expose
