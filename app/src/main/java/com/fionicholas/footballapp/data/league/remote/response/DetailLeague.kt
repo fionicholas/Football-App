@@ -30,5 +30,9 @@ data class DetailLeague(
 
     @SerializedName("strBadge")
     @Expose
-    val image: String?
+    val image: String?,
+
+    @SerializedName("strFanart1")
+    @Expose
+    val banner: String?
 )

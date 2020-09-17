@@ -24,7 +24,7 @@ class LeagueFragment : BaseFragment() {
 
     private val adapterLeague : LeagueAdapter by lazy {
         LeagueAdapter{
-            DetailLeagueActivity.start(context = requireContext(), leagueId = it.id)
+            DetailLeagueActivity.start(context = requireContext(), league = it)
         }
     }
 

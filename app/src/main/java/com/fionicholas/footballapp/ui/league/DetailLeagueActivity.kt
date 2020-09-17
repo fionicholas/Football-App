@@ -11,28 +11,30 @@ import com.bumptech.glide.Glide
 import com.fionicholas.footballapp.R
 import com.fionicholas.footballapp.base.BaseActivity
 import com.fionicholas.footballapp.data.league.remote.response.DetailLeague
+import com.fionicholas.footballapp.data.league.remote.response.League
 import com.fionicholas.footballapp.ui.general.adapter.GeneralPagerAdapter
 import com.fionicholas.footballapp.ui.match.MatchFragment
 import com.fionicholas.footballapp.ui.standing.StandingFragment
 import com.fionicholas.footballapp.ui.team.TeamFragment
-import com.fionicholas.footballapp.utils.BundleKeys.LEAGUE_ID
+import com.fionicholas.footballapp.utils.BundleKeys.LEAGUE_DATA
+import com.fionicholas.footballapp.utils.toBaseDateFormat
 import kotlinx.android.synthetic.main.activity_detail_league.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.text.SimpleDateFormat
-import java.util.*
 
 class DetailLeagueActivity : BaseActivity() {
 
     companion object {
-        fun start(context: Context, leagueId: String) {
+        fun start(context: Context, league: League) {
             context.startActivity(
                 Intent(context, DetailLeagueActivity::class.java)
-                    .putExtra(LEAGUE_ID, leagueId)
+                    .putExtra(LEAGUE_DATA, league)
             )
         }
     }
 
     private val viewModel: LeagueViewModel by viewModel()
+
+    var leagueId : String? = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +43,11 @@ class DetailLeagueActivity : BaseActivity() {
 
         setupCollapsingToolbarDetailLeague()
 
-        val leagueId = intent.getStringExtra(LEAGUE_ID)
+        val dataLeague = intent.getParcelableExtra<League>(LEAGUE_DATA)
 
-        setupToolbar(toolbar, getString(R.string.app_name), true)
+        leagueId = dataLeague?.id
+
+        dataLeague?.name?.let { setupToolbar(toolbar, it, true) }
         setupViewPagerDetailLeague()
 
         leagueId?.let { viewModel.loadDetailLeague(it) }
@@ -72,19 +76,14 @@ class DetailLeagueActivity : BaseActivity() {
     private val loadDetailLeagues = Observer<List<DetailLeague>> {
         Log.v("TAG", "data updated $it")
         it.forEach { data ->
-            val parser = SimpleDateFormat("yyyy-mm-dd", Locale.getDefault())
-            val formatter = SimpleDateFormat("dd-mm-yyyy", Locale.getDefault())
-            val date: String = formatter.format(parser.parse(data.firstEvent.toString()))
             tvLeagueName.text = data.name
-            tvEvent.text = date
+            tvEvent.text = data.firstEvent?.toBaseDateFormat()
             tvCountry.text = data.country
             tvGender.text = data.gender
             tvDescLeague.text = data.description
             Glide.with(this)
                 .load(data.image)
                 .into(imgLeague)
-
-            Log.d("ksskskks", data.name.toString())
         }
     }
 
@@ -96,7 +95,6 @@ class DetailLeagueActivity : BaseActivity() {
 
     private val onMessageErrorObserver = Observer<String> {
         Log.e("TAG", "onMessageError $it")
-
     }
 
     private fun setupViewPagerDetailLeague() {
