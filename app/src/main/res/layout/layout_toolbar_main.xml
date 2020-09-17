@@ -9,7 +9,6 @@
     android:gravity="center_vertical"
     android:elevation="@dimen/dimen_4dp"
     app:contentInsetEnd="@dimen/dimen_0dp"
-    app:navigationIcon="@drawable/ic_back_white"
     app:contentInsetStartWithNavigation="@dimen/dimen_0dp"
     tools:targetApi="lollipop">
 
