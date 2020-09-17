@@ -1,4 +1,4 @@
-package com.fionicholas.footballapp.data.match
+package com.fionicholas.footballapp.data.match.remote.response
 
 import android.os.Parcelable
 import com.google.gson.annotations.Expose

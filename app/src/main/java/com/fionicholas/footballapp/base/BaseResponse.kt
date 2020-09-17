@@ -1,7 +1,7 @@
 package com.fionicholas.footballapp.base
 
 import com.fionicholas.footballapp.data.league.remote.response.DetailLeague
-import com.fionicholas.footballapp.data.match.Match
+import com.fionicholas.footballapp.data.match.remote.response.Match
 import com.fionicholas.footballapp.data.standing.Standing
 import com.fionicholas.footballapp.data.team.Team
 import com.google.gson.annotations.Expose

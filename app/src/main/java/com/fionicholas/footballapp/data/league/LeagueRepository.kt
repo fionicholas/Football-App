@@ -6,9 +6,7 @@ import io.reactivex.Observable
 
 class LeagueRepository(private val services: LeagueApiInterface) :
     LeagueDataSource {
-
     override fun getDetailLeague(id : String): Observable<List<DetailLeague>> {
         return services.getDetailLeague(id).map { it.leagues }
     }
-
 }

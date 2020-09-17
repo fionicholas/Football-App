@@ -32,7 +32,7 @@
                     style="@style/BaseTextView.Bold"
                     android:text="@string/label_detail_league"
                     android:textColor="@color/colorWhite"
-                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_14dp"
                     android:textSize="@dimen/dimen_text_20sp"
                     android:layout_marginStart="@dimen/dimen_60dp"/>
 
