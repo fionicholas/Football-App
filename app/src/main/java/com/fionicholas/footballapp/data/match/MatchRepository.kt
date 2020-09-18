@@ -23,4 +23,8 @@ class MatchRepository(private val services: MatchApiInterface) :
     override fun getTeamDetail(id: String): Observable<List<Team>> {
         return services.getTeamDetail(id).map { it.teams }
     }
+
+    override fun getSearchMatch(query: String): Observable<List<Match>> {
+        return services.getSearchMatch(query).map { it.event }
+    }
 }

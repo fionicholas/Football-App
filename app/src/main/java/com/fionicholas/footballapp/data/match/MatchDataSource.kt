@@ -10,4 +10,5 @@ interface MatchDataSource {
     fun getDetailMatch(id : String): Observable<List<Match>>
     fun getDetailLeague(id : String): Observable<List<DetailLeague>>
     fun getTeamDetail(id : String): Observable<List<Team>>
+    fun getSearchMatch(query : String): Observable<List<Match>>
 }

@@ -26,6 +26,9 @@ class MatchViewModel(private val repository: MatchDataSource) : BaseViewModel() 
     private val _badgeAway = MutableLiveData<List<Team>>().apply { value = emptyList() }
     val badgeAway: LiveData<List<Team>> = _badgeAway
 
+    private val _searchMatch = MutableLiveData<List<Match>>().apply { value = emptyList() }
+    val searchMatch: LiveData<List<Match>> = _searchMatch
+
     private val _isViewLoading = MutableLiveData<Boolean>()
     val isViewLoading: LiveData<Boolean> = _isViewLoading
 
@@ -96,6 +99,20 @@ class MatchViewModel(private val repository: MatchDataSource) : BaseViewModel() 
             .subscribe({
                 _isViewLoading.postValue(false)
                 _badgeAway.postValue(it)
+            }, {
+                onErrorNetwork(it)
+            })
+        )
+    }
+
+    fun loadSearchMatch(query: String) {
+        subscribe(repository.getSearchMatch(query)
+            .subscribeOn(Schedulers.io())
+            .observeOn(Schedulers.io())
+            .doOnSubscribe { _isViewLoading.postValue(true) }
+            .subscribe({
+                _isViewLoading.postValue(false)
+                _searchMatch.postValue(it)
             }, {
                 onErrorNetwork(it)
             })
