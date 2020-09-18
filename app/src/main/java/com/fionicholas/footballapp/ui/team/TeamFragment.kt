@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,9 +28,11 @@ class TeamFragment : Fragment() {
 
     private val teamAdapter : TeamAdapter by lazy {
         TeamAdapter{
-            //to detail
+            DetailTeamActivity.start(requireContext(), it)
         }
     }
+
+    private var leagueId : String? = ""
 
     private val viewModel : TeamViewModel by inject()
 
@@ -49,12 +52,23 @@ class TeamFragment : Fragment() {
             adapter = teamAdapter
         }
 
-        val leagueId = (context as DetailLeagueActivity).leagueId
+        leagueId = (context as DetailLeagueActivity).leagueId
         leagueId?.let { viewModel.loadTeamList(it) }
-        setupViewModelMatch()
+        setupViewModelTeam()
+
+        tilSearch.setEndIconOnClickListener {
+            val query = edtSearch.text.toString()
+            if (query != "") {
+                viewModel.loadSearchTeam(query)
+                setupViewModelSearchTeam()
+            }else {
+                leagueId?.let { viewModel.loadTeamList(it) }
+                setupViewModelTeam()
+            }
+        }
     }
 
-    private fun setupViewModelMatch() {
+    private fun setupViewModelTeam() {
         viewModel.teamList.observe(viewLifecycleOwner, loadTeamList)
         viewModel.isViewLoading.observe(viewLifecycleOwner, isViewLoadingObserver)
         viewModel.onMessageError.observe(viewLifecycleOwner, onMessageErrorObserver)
@@ -65,6 +79,17 @@ class TeamFragment : Fragment() {
         teamAdapter.setData(it)
     }
 
+    private fun setupViewModelSearchTeam() {
+        viewModel.searchTeam.observe(viewLifecycleOwner, loadSearchTeam)
+        viewModel.isViewLoading.observe(viewLifecycleOwner, isViewLoadingObserver)
+        viewModel.onMessageError.observe(viewLifecycleOwner, onMessageErrorObserver)
+    }
+
+    private val loadSearchTeam = Observer<List<Team>> {
+        Log.v("TAG", "data updated $it")
+        teamAdapter.setData(it.filter { team-> team.idLeague == leagueId })
+    }
+
     private val isViewLoadingObserver = Observer<Boolean> {
         Log.v("TAG", "isViewLoading $it")
         val visibility = if (it) View.VISIBLE else View.GONE
@@ -73,6 +98,7 @@ class TeamFragment : Fragment() {
 
     private val onMessageErrorObserver = Observer<String> {
         Log.e("TAG", "onMessageError $it")
+        Toast.makeText(context, "Data not found!", Toast.LENGTH_SHORT).show()
     }
 
 }

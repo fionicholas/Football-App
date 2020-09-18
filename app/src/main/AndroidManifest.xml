@@ -13,12 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.match.DetailMatchActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.league.DetailLeagueActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.MainActivity"
+            android:name=".ui.splash.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.team.DetailTeamActivity" />
+        <activity
+            android:name=".ui.match.DetailMatchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.league.DetailLeagueActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
