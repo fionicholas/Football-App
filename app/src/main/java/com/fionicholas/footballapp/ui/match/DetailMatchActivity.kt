@@ -13,6 +13,7 @@ import com.fionicholas.footballapp.data.league.remote.response.DetailLeague
 import com.fionicholas.footballapp.data.match.remote.response.Match
 import com.fionicholas.footballapp.data.team.remote.response.Team
 import com.fionicholas.footballapp.utils.BundleKeys
+import com.fionicholas.footballapp.utils.toBaseDateFormat
 import kotlinx.android.synthetic.main.activity_detail_match.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -54,6 +55,7 @@ class DetailMatchActivity : BaseActivity() {
         it.forEach { match ->
             tvTeamHomeName.text = match.homeTeam
             tvTeamAwayName.text = match.awayTeam
+            tvMatchDate.text = match.dateEvent?.toBaseDateFormat()
             tvScoreHome.text = match.homeScore
             tvScoreAway.text = match.awayScore
             tvMatchName.text = match.eventName

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,11 +28,14 @@ class MatchFragment : Fragment() {
 
     private val matchAdapter : MatchAdapter by lazy {
         MatchAdapter{
-            it.idEvent?.let { matchId -> DetailMatchActivity.start(requireContext(), matchId) }
+            //TODO : match id hardcoded
+            it.idEvent?.let { matchId -> DetailMatchActivity.start(requireContext(), "441613") }
         }
     }
 
     private val viewModel: MatchViewModel by viewModel()
+
+    private var leagueId : String? = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,11 +51,24 @@ class MatchFragment : Fragment() {
         rvMatch.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = matchAdapter
+            isNestedScrollingEnabled = false
         }
 
-        val leagueId = (context as DetailLeagueActivity).leagueId
+        leagueId = (context as DetailLeagueActivity).leagueId
         leagueId?.let { viewModel.loadMatchList(it) }
         setupViewModelMatch()
+
+        tilSearch.setEndIconOnClickListener {
+            val query = edtSearch.text.toString()
+            if (query != "") {
+                viewModel.loadSearchMatch(query)
+                setupViewModelSearchMatch()
+                Log.d("TAG", "SDSDAD")
+            }else {
+                leagueId?.let { viewModel.loadMatchList(it) }
+                setupViewModelMatch()
+            }
+        }
     }
 
     private fun setupViewModelMatch() {
@@ -60,10 +77,20 @@ class MatchFragment : Fragment() {
         viewModel.onMessageError.observe(viewLifecycleOwner, onMessageErrorObserver)
     }
 
-
     private val loadMatchList = Observer<List<Match>> {
         Log.v("TAG", "data updated $it")
         matchAdapter.setData(it)
+    }
+
+    private fun setupViewModelSearchMatch() {
+        viewModel.searchMatch.observe(viewLifecycleOwner, loadSearchMatch)
+        viewModel.isViewLoading.observe(viewLifecycleOwner, isViewLoadingObserver)
+        viewModel.onMessageError.observe(viewLifecycleOwner, onMessageErrorObserver)
+    }
+
+    private val loadSearchMatch = Observer<List<Match>> {
+        Log.v("TAG", "data updated $it")
+        matchAdapter.setData(it.filter { match -> match.idLeague == leagueId })
     }
 
     private val isViewLoadingObserver = Observer<Boolean> {
@@ -74,6 +101,7 @@ class MatchFragment : Fragment() {
 
     private val onMessageErrorObserver = Observer<String> {
         Log.e("TAG", "onMessageError $it")
+        Toast.makeText(context, "Data not found!", Toast.LENGTH_SHORT).show()
     }
 
 }

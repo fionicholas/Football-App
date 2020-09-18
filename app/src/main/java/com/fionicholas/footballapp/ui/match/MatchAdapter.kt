@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fionicholas.footballapp.R
 import com.fionicholas.footballapp.data.match.remote.response.Match
+import com.fionicholas.footballapp.utils.toBaseDateFormat
 import kotlinx.android.synthetic.main.item_match.view.*
 import java.util.ArrayList
 
@@ -42,6 +43,7 @@ class MatchAdapter(
                 tvLeagueName.text = data.nameLeague
                 tvTeamHomeName.text = data.homeTeam
                 tvTeamAwayName.text = data.awayTeam
+                tvMatchDate.text = data.dateEvent?.toBaseDateFormat()
                 tvScoreHome.text = data.homeScore
                 tvScoreAway.text = data.awayScore
                 itemView.setOnClickListener {
