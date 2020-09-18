@@ -25,4 +25,10 @@
     <string name="label_away_goal_details">Away Goal Details :</string>
     <string name="label_shoots">Shoots</string>
     <string name="label_detail_match">Detail Match</string>
+    <string name="label_sport">Sport</string>
+    <string name="label_year">Year</string>
+    <string name="label_stadium">Stadium</string>
+    <string name="label_description">Description</string>
+    <string name="label_detail_team">Detail Team</string>
+    <string name="hint_search">Search</string>
 </resources>

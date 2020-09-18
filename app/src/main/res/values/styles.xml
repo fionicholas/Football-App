@@ -29,6 +29,17 @@
         <item name="android:background">@color/colorTransparent</item>
     </style>
 
+    <style name="BaseEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">@dimen/dimen_20dp</item>
+        <item name="android:paddingEnd">@dimen/dimen_20dp</item>
+        <item name="cursorColor">#2d3035</item>
+        <item name="android:textColor">#2d3035</item>
+        <item name="android:background">@drawable/selector_border</item>
+    </style>
+
     <style name="BaseEditTextDate">
         <item name="android:textSize">14sp</item>
         <item name="android:layout_width">match_parent</item>
