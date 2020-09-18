@@ -72,10 +72,10 @@
                             android:layout_marginStart="@dimen/dimen_8dp"
                             android:layout_marginTop="@dimen/dimen_16dp"
                             android:layout_toEndOf="@+id/imgLeague"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/colorBlack"
                             android:textSize="@dimen/dimen_text_16sp"
                             android:textStyle="bold"
-                            tools:text="Nama League" />
+                            tools:text="League Name" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvDescLeague"
@@ -83,7 +83,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tvLeagueName"
                             android:layout_marginHorizontal="@dimen/dimen_8dp"
-                            android:layout_marginTop="@dimen/dimen_8dp"
+                            android:layout_marginTop="@dimen/dimen_4dp"
                             android:layout_toEndOf="@+id/imgLeague"
                             android:maxLines="5"
                             android:textColor="@color/colorBlack"
@@ -98,34 +98,31 @@
                             android:layout_marginTop="@dimen/dimen_20dp"
                             android:gravity="center"
                             android:text="@string/label_country"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/dimen_text_16sp"
+                            android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvTitleEvent"
-                            android:layout_width="150dp"
+                            android:layout_width="140dp"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/imgLeague"
                             android:layout_marginTop="@dimen/dimen_20dp"
                             android:layout_toEndOf="@+id/tvTitleCountry"
                             android:gravity="center"
                             android:text="@string/label_first_event"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/dimen_text_16sp"
+                            android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvTitleGender"
-                            android:layout_width="160dp"
+                            android:layout_width="170dp"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/imgLeague"
                             android:layout_marginTop="@dimen/dimen_20dp"
                             android:layout_toEndOf="@+id/tvTitleEvent"
                             android:gravity="center"
                             android:text="@string/label_gender"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/dimen_text_16sp"
+                            android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -140,7 +137,7 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvEvent"
-                            android:layout_width="150dp"
+                            android:layout_width="140dp"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tvTitleCountry"
                             android:layout_marginTop="@dimen/dimen_4dp"
@@ -151,7 +148,7 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvGender"
-                            android:layout_width="160dp"
+                            android:layout_width="170dp"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tvTitleCountry"
                             android:layout_marginTop="@dimen/dimen_4dp"
@@ -195,7 +192,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:background="@color/colorGrey2"
-                app:tabTextColor="@color/colorPrimary" />
+                app:tabTextColor="@color/colorBlack" />
 
         </androidx.viewpager.widget.ViewPager>
 

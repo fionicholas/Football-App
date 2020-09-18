@@ -8,7 +8,7 @@
         android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorTextPrimaryDark" />
+        android:background="@color/colorBlack" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:maxLines="1"
-            android:textColor="@color/colorTextPrimaryDark"
+            android:textColor="@color/colorBlack"
             tools:text="@string/title_tab_team" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:gravity="center"
-            android:textColor="@color/colorTextPrimaryDark"
+            android:textColor="@color/colorBlack"
             tools:text="@string/label_played" />
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:gravity="center"
-            android:textColor="@color/colorTextPrimaryDark"
+            android:textColor="@color/colorBlack"
             tools:text="@string/label_win" />
 
         <TextView
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:gravity="center"
-            android:textColor="@color/colorTextPrimaryDark"
+            android:textColor="@color/colorBlack"
             tools:text="@string/label_lose" />
 
         <TextView
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:gravity="center"
-            android:textColor="@color/colorTextPrimaryDark"
+            android:textColor="@color/colorBlack"
             tools:text="@string/label_draw" />
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:gravity="center"
-            android:textColor="@color/colorTextPrimaryDark"
+            android:textColor="@color/colorBlack"
             tools:text="@string/label_gm" />
 
         <TextView
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:gravity="center"
-            android:textColor="@color/colorTextPrimaryDark"
+            android:textColor="@color/colorBlack"
             tools:text="@string/label_gk" />
 
     </LinearLayout>

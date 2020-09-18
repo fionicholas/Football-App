@@ -22,7 +22,7 @@
         android:layout_marginEnd="@dimen/dimen_20dp"
         android:textColor="@color/colorWhite"
         android:maxLines="1"
-        android:textSize="@dimen/dimen_text_22sp"
+        android:textSize="@dimen/dimen_text_20sp"
         android:text="@string/app_name" />
 
 </com.google.android.material.appbar.MaterialToolbar>
