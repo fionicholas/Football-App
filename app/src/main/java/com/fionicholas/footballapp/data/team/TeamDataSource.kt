@@ -5,4 +5,6 @@ import io.reactivex.Observable
 
 interface TeamDataSource {
     fun getTeamList(id : String): Observable<List<Team>>
+    fun getTeamDetail(id : String): Observable<List<Team>>
+    fun getSearchTeam(query : String): Observable<List<Team>>
 }
