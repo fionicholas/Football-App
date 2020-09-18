@@ -1,5 +1,7 @@
 package com.fionicholas.footballapp.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.fionicholas.footballapp.R
@@ -10,6 +12,14 @@ import com.fionicholas.footballapp.utils.replaceFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
+    companion object {
+        fun start(context: Context) {
+            context.startActivity(
+                Intent(context, MainActivity::class.java)
+            )
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
