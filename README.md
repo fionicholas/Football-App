@@ -1,5 +1,5 @@
 # Football-App
-Football App using base project of https://github.com/fionicholas/Simple-Base-MVVM
+Football App using base project from https://github.com/fionicholas/Simple-Base-MVVM
 
 ## Tech Stack
 - Kotlin
@@ -14,5 +14,7 @@ Football App using base project of https://github.com/fionicholas/Simple-Base-MV
 </pre>
 
 ## TODO
+* [x] Search Match
+* [x] Search Team
 * [ ] Favorite Match and Team
 * [ ] Implement Local Database
