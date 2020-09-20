@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.favorite.FavoriteFragment">
 
-    <TextView
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="@dimen/dimen_text_20sp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="FAVORITE" />
+    <include layout="@layout/layout_toolbar_main" />
 
-</FrameLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabFavorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/colorGrey2"
+            app:tabTextColor="@color/colorBlack" />
+
+    </androidx.viewpager.widget.ViewPager>
+
+</RelativeLayout>
