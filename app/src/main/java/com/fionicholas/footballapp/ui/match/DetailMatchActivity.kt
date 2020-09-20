@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
@@ -14,7 +15,10 @@ import com.fionicholas.footballapp.R
 import com.fionicholas.footballapp.base.BaseActivity
 import com.fionicholas.footballapp.data.league.remote.response.DetailLeague
 import com.fionicholas.footballapp.data.match.remote.response.Match
+import com.fionicholas.footballapp.data.matchfavorite.local.response.MatchFavorite
+import com.fionicholas.footballapp.data.matchfavorite.toFavorite
 import com.fionicholas.footballapp.data.team.remote.response.Team
+import com.fionicholas.footballapp.ui.favorite.match.MatchFavoriteViewModel
 import com.fionicholas.footballapp.utils.BundleKeys
 import com.fionicholas.footballapp.utils.toBaseDateFormat
 import kotlinx.android.synthetic.main.activity_detail_match.*
@@ -32,9 +36,11 @@ class DetailMatchActivity : BaseActivity() {
         }
     }
 
-    private val viewModel: MatchViewModel by viewModel()
+    private val matchViewModel: MatchViewModel by viewModel()
+    private val matchFavoriteViewModel: MatchFavoriteViewModel by viewModel()
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
+    private var matchData: Match? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,16 +51,19 @@ class DetailMatchActivity : BaseActivity() {
 
         val matchId = intent.getStringExtra(BundleKeys.MATCH_ID)
 
-        matchId?.let { viewModel.loadDetailMatch(it) }
+        matchId?.let { matchViewModel.loadDetailMatch(it) }
         setupViewModelMatch()
+
+        matchId?.toInt()?.let { matchFavoriteViewModel.loadMatchFavoriteListById(it) }
+        setupViewModelFavorite()
+
     }
 
     private fun setupViewModelMatch() {
-        viewModel.detailMatch.observe(this, loadMatchList)
-        viewModel.isViewLoading.observe(this, isViewLoadingObserver)
-        viewModel.onMessageError.observe(this, onMessageErrorObserver)
+        matchViewModel.detailMatch.observe(this, loadMatchList)
+        matchViewModel.isViewLoading.observe(this, isViewLoadingObserver)
+        matchViewModel.onMessageError.observe(this, onMessageErrorObserver)
     }
-
 
     private val loadMatchList = Observer<List<Match>> {
         it.forEach { match ->
@@ -75,46 +84,48 @@ class DetailMatchActivity : BaseActivity() {
             loadLeagueImage(match.idLeague)
             loadBadgeHomeTeam(match.idHomeTeam)
             loadBadgeAwayTeam(match.idAwayTeam)
+            matchData = match
         }
     }
 
     private fun loadLeagueImage(idLeague: String?) {
-        idLeague?.let { viewModel.loadDetailLeague(it) }
+        idLeague?.let { matchViewModel.loadDetailLeague(it) }
 
-        viewModel.detailLeague.observe(this, loadDetailLeague)
-        viewModel.isViewLoading.observe(this, isViewLoadingObserver)
-        viewModel.onMessageError.observe(this, onMessageErrorObserver)
+        matchViewModel.detailLeague.observe(this, loadDetailLeague)
+        matchViewModel.isViewLoading.observe(this, isViewLoadingObserver)
+        matchViewModel.onMessageError.observe(this, onMessageErrorObserver)
     }
 
     private val loadDetailLeague = Observer<List<DetailLeague>> {
-        it.forEach {data ->
+        it.forEach { data ->
             Glide.with(this).load(data.banner).into(imgLeague)
         }
     }
 
     private fun loadBadgeHomeTeam(idHomeTeam: String?) {
-        idHomeTeam?.let { viewModel.loadBadgeHomeTeam(it) }
+        idHomeTeam?.let { matchViewModel.loadBadgeHomeTeam(it) }
 
-        viewModel.badgeHome.observe(this, loadBadgeHomeTeam)
-        viewModel.isViewLoading.observe(this, isViewLoadingObserver)
-        viewModel.onMessageError.observe(this, onMessageErrorObserver)
+        matchViewModel.badgeHome.observe(this, loadBadgeHomeTeam)
+        matchViewModel.isViewLoading.observe(this, isViewLoadingObserver)
+        matchViewModel.onMessageError.observe(this, onMessageErrorObserver)
     }
+
     private val loadBadgeHomeTeam = Observer<List<Team>> {
-        it.forEach {data ->
+        it.forEach { data ->
             Glide.with(this).load(data.strTeamBadge).into(imgTeamHome)
         }
     }
 
     private fun loadBadgeAwayTeam(idAwayTeam: String?) {
-        idAwayTeam?.let { viewModel.loadBadgeAwayTeam(it) }
+        idAwayTeam?.let { matchViewModel.loadBadgeAwayTeam(it) }
 
-        viewModel.badgeAway.observe(this, loadBadgeAwayTeam)
-        viewModel.isViewLoading.observe(this, isViewLoadingObserver)
-        viewModel.onMessageError.observe(this, onMessageErrorObserver)
+        matchViewModel.badgeAway.observe(this, loadBadgeAwayTeam)
+        matchViewModel.isViewLoading.observe(this, isViewLoadingObserver)
+        matchViewModel.onMessageError.observe(this, onMessageErrorObserver)
     }
 
     private val loadBadgeAwayTeam = Observer<List<Team>> {
-        it.forEach {data ->
+        it.forEach { data ->
             Glide.with(this).load(data.strTeamBadge).into(imgTeamAway)
         }
     }
@@ -143,6 +154,7 @@ class DetailMatchActivity : BaseActivity() {
                 return true
             }
             R.id.menuFavorite -> {
+                if(isFavorite) matchData?.let { removeFromFavorite(it) } else matchData?.let { addToFavorite(it) }
                 isFavorite = !isFavorite
                 setFavorite()
             }
@@ -151,11 +163,38 @@ class DetailMatchActivity : BaseActivity() {
     }
 
     private fun setFavorite() {
-        if (isFavorite)
+        if (isFavorite) {
             menuItem?.getItem(0)?.icon =
                 ContextCompat.getDrawable(this, R.drawable.ic_favorite_white)
-        else
+        } else {
+
             menuItem?.getItem(0)?.icon =
                 ContextCompat.getDrawable(this, R.drawable.ic_favorite_border_white)
+        }
+    }
+
+    private fun setupViewModelFavorite() {
+        matchFavoriteViewModel.matchFavoriteById.observe(this, loadFavoriteById)
+        matchFavoriteViewModel.isViewLoading.observe(this, isViewLoadingObserver)
+        matchFavoriteViewModel.onMessageError.observe(this, onMessageErrorObserver)
+        matchFavoriteViewModel.addMatchFavorite.observe(this, {
+            Toast.makeText(this, "Added to favorite!", Toast.LENGTH_SHORT).show()
+        })
+
+        matchFavoriteViewModel.deleteMatchFavorite.observe(this, {
+            Toast.makeText(this, "Removed from favorite!", Toast.LENGTH_SHORT).show()
+        })
+    }
+
+    private val loadFavoriteById = Observer<List<MatchFavorite>> { favorite ->
+        if (favorite.isNotEmpty()) isFavorite = true
+    }
+
+    private fun addToFavorite(matchData: Match) {
+        matchFavoriteViewModel.addMatchFavorite(matchData.toFavorite())
+    }
+
+    private fun removeFromFavorite(matchData: Match) {
+        matchData.idEvent?.toInt()?.let { matchFavoriteViewModel.deleteMatchFavorite(it) }
     }
 }
