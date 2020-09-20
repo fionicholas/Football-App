@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.fionicholas.footballapp.R
 import com.fionicholas.footballapp.base.BaseFragment
+import com.fionicholas.footballapp.ui.favorite.match.MatchFavoriteFragment
+import com.fionicholas.footballapp.ui.favorite.team.TeamFavoriteFragment
 import com.fionicholas.footballapp.ui.general.adapter.GeneralPagerAdapter
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.layout_toolbar_main.*
