@@ -28,8 +28,7 @@ class MatchFragment : Fragment() {
 
     private val matchAdapter : MatchAdapter by lazy {
         MatchAdapter{
-            //TODO : match id hardcoded
-            it.idEvent?.let { matchId -> DetailMatchActivity.start(requireContext(), "441613") }
+            it.idEvent?.let { matchId -> DetailMatchActivity.start(requireContext(), matchId) }
         }
     }
 
@@ -63,7 +62,6 @@ class MatchFragment : Fragment() {
             if (query != "") {
                 viewModel.loadSearchMatch(query)
                 setupViewModelSearchMatch()
-                Log.d("TAG", "SDSDAD")
             }else {
                 leagueId?.let { viewModel.loadMatchList(it) }
                 setupViewModelMatch()

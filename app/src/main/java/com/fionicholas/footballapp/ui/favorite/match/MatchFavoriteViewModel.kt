@@ -1,4 +1,4 @@
-package com.fionicholas.footballapp.ui.match
+package com.fionicholas.footballapp.ui.favorite.match
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,8 +15,8 @@ class MatchFavoriteViewModel(private val repository: MatchFavoriteDataSource) : 
     private val _matchFavoriteById = MutableLiveData<List<MatchFavorite>>().apply { value = emptyList() }
     val matchFavoriteById: LiveData<List<MatchFavorite>> = _matchFavoriteById
 
-    private val _addMovieFavorite = MutableLiveData<Unit>().apply { Unit }
-    val addMovieFavorite: LiveData<Unit> = _addMovieFavorite
+    private val _addMatchFavorite = MutableLiveData<Unit>().apply { Unit }
+    val addMatchFavorite: LiveData<Unit> = _addMatchFavorite
 
     private val _deleteMatchFavorite = MutableLiveData<Unit>().apply { Unit }
     val deleteMatchFavorite: LiveData<Unit> = _deleteMatchFavorite
@@ -41,8 +41,8 @@ class MatchFavoriteViewModel(private val repository: MatchFavoriteDataSource) : 
         )
     }
 
-    fun loadMatchFavoriteListById() {
-        subscribe(repository.getMatchFavorite()
+    fun loadMatchFavoriteListById(id : Int) {
+        subscribe(repository.getMatchFavoriteById(id)
             .subscribeOn(Schedulers.io())
             .observeOn(Schedulers.io())
             .doOnSubscribe { _isViewLoading.postValue(true) }
@@ -62,7 +62,7 @@ class MatchFavoriteViewModel(private val repository: MatchFavoriteDataSource) : 
             .doOnSubscribe { _isViewLoading.postValue(true) }
             .subscribe({
                 _isViewLoading.postValue(false)
-                _addMovieFavorite.postValue(Unit)
+                _addMatchFavorite.postValue(Unit)
             }, {
                 onError(it)
             })
