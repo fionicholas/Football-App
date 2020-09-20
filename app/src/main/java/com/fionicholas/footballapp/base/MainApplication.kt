@@ -13,7 +13,8 @@ class MainApplication : BaseApplication() {
             standingModule,
             teamModule,
             movieModule,
-            matchFavoriteModule
+            matchFavoriteModule,
+            teamFavoriteModule
         )
     }
 }

@@ -9,42 +9,42 @@ import kotlinx.android.parcel.Parcelize
 data class Team(
     @SerializedName("idTeam")
     @Expose
-    val idTeam: String?,
+    val idTeam: String? = "",
 
     @SerializedName("strTeam")
     @Expose
-    val strTeam: String?,
+    val strTeam: String? = "",
 
     @SerializedName("intFormedYear")
     @Expose
-    val intFormedYear: String?,
+    val intFormedYear: String? = "",
 
     @SerializedName("strSport")
     @Expose
-    val strSport: String?,
+    val strSport: String? = "",
 
     @SerializedName("strDescriptionEN")
     @Expose
-    val strDescriptionEN: String?,
+    val strDescriptionEN: String? = "",
 
     @SerializedName("strCountry")
     @Expose
-    val strCountry: String?,
+    val strCountry: String? = "",
 
     @SerializedName("strTeamBadge")
     @Expose
-    val strTeamBadge: String?,
+    val strTeamBadge: String? = "",
 
     @SerializedName("strStadium")
     @Expose
-    val strStadium: String?,
+    val strStadium: String? = "",
 
     @SerializedName("strLeague")
     @Expose
-    val strLeague: String?,
+    val strLeague: String? = "",
 
     @SerializedName("idLeague")
     @Expose
-    val idLeague: String?
+    val idLeague: String? = ""
 
 ) : Parcelable
