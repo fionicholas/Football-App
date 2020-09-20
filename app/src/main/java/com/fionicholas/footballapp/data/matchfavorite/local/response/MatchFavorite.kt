@@ -9,25 +9,27 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity(tableName = "match_favorite")
 data class MatchFavorite(
-
     @PrimaryKey(autoGenerate = true)
-    val idEvent: String?,
+    val idEvent: Int,
 
     @ColumnInfo(name = "nameLeague")
-    val nameLeague: String?,
+    val nameLeague: String,
+
+    @ColumnInfo(name = "homeTeam")
+    val homeTeam: String,
 
     @ColumnInfo(name = "awayTeam")
-    val awayTeam: String?,
+    val awayTeam: String,
 
     @ColumnInfo(name = "homeScore")
-    val homeScore: String?,
+    val homeScore: String,
 
     @ColumnInfo(name = "awayScore")
-    val awayScore: String?,
+    val awayScore: String,
 
     @ColumnInfo(name = "dateEvent")
-    val dateEvent: String?,
+    val dateEvent: String,
 
     @ColumnInfo(name = "idLeague")
-    val idLeague: String?
+    val idLeague: String
 ) : Parcelable

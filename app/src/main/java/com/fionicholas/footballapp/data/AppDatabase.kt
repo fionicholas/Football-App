@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.fionicholas.footballapp.data.matchfavorite.local.MatchFavoriteDao
 import com.fionicholas.footballapp.data.matchfavorite.local.response.MatchFavorite
+import com.fionicholas.footballapp.data.teamfavorite.local.response.TeamFavorite
 
-@Database(entities = [MatchFavorite::class], version = 1)
+@Database(entities = [MatchFavorite::class, TeamFavorite::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {
@@ -29,8 +29,6 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 
-    abstract fun matchFavoriteDao(): MatchFavoriteDao
-
-    abstract fun teamFavoriteDao(): MatchFavoriteDao
+    abstract fun favoriteDao(): FavoriteDao
 
 }
