@@ -16,5 +16,6 @@ Football App using base project from https://github.com/fionicholas/Simple-Base-
 ## TODO
 * [x] Search Match
 * [x] Search Team
-* [ ] Favorite Match and Team
-* [ ] Implement Local Database
+* [x] Favorite Match and Team
+* [x] Implement Local Database
+* [ ] Implement MultiStateView
