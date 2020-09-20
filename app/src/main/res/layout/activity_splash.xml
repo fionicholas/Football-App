@@ -23,7 +23,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="@color/colorTextPrimaryDark"
+        android:textColor="@color/colorPrimary"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/label_football_app"
