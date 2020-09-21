@@ -6,6 +6,7 @@ Football App using base project from https://github.com/fionicholas/Simple-Base-
 - MVVM
 - RvJava2
 - DI
+- Room
 - Repository Patern
 
 ## Screenshots
