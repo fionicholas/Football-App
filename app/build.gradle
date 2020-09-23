@@ -31,8 +31,6 @@ android {
 
     buildTypes.each {
         it.buildConfigField 'String', 'BASE_URL', '"https://www.thesportsdb.com/api/v1/json/1/"'
-        it.buildConfigField 'String', 'URL_POSTER', '"https://image.tmdb.org/t/p/w780"'
-        it.buildConfigField 'String', 'API_KEY', '"1b5c4f231f6dfe2b546cc12df8af1949"'
     }
 
 

@@ -12,7 +12,6 @@ class MainApplication : BaseApplication() {
             matchModule,
             standingModule,
             teamModule,
-            movieModule,
             matchFavoriteModule,
             teamFavoriteModule
         )
