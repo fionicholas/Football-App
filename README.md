@@ -20,3 +20,8 @@ Football App using base project from https://github.com/fionicholas/Simple-Base-
 * [x] Favorite Match and Team
 * [x] Implement Local Database
 * [ ] Implement MultiStateView
+
+## Don't Forget To :
+
+- Star the Repository [⭐](https://github.com/fionicholas/Movie-Flutter)
+- Follow [My Github Account](https://github.com/fionicholas/)
