@@ -92,4 +92,7 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.3'
 
+    //msv
+    implementation  'com.github.Kennyc1012:MultiStateView:2.1.2'
+
 }
