@@ -22,7 +22,7 @@ Football App using base project from https://github.com/fionicholas/Simple-Base-
 * [x] Implement Local Database
 * [X] Implement MultiStateView
 
-## Don't Forget To :
+## Don't Forget to
 
 - Star the Repository [⭐](https://github.com/fionicholas/Football-App)
 - Follow [My Github Account](https://github.com/fionicholas/)
