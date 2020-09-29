@@ -1,6 +1,8 @@
 # Football-App
 Football App using base project from https://github.com/fionicholas/Simple-Base-MVVM
 
+<img src="https://media3.giphy.com/media/xOQETjDuq6wml2bGo2/giphy.gif" alt="football-app"/>
+
 ## Tech Stack
 - Kotlin
 - MVVM
